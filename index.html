@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Food Made Right?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Was Your Food Made Right?</h1>
+    <p class="subtitle">
+      This is NOT about wait times, service, or attitude.<br>
+      Just one question: <strong>Was your food made correctly?</strong>
+    </p>
+
+    <form id="foodForm">
+
+      <!-- Restaurant -->
+      <label for="restaurant">Restaurant</label>
+      <select id="restaurant" name="restaurant" required>
+        <option value="">Select a restaurant</option>
+        <option>Arby's</option>
+        <option>Burger King</option>
+        <option>Chick-fil-A</option>
+        <option>Chipotle</option>
+        <option>Domino's</option>
+        <option>Dunkin'</option>
+        <option>KFC</option>
+        <option>McDonald's</option>
+        <option>Panda Express</option>
+        <option>Pizza Hut</option>
+        <option>Starbucks</option>
+        <option>Taco Bell</option>
+        <option>Wendy's</option>
+        <option>Other</option>
+      </select>
+
+      <!-- Correct? -->
+      <label>Was your food made correctly?</label>
+      <div class="radio-group">
+        <label>
+          <input type="radio" name="correct" value="Yes" required>
+          Yes
+        </label>
+        <label>
+          <input type="radio" name="correct" value="No">
+          No
+        </label>
+      </div>
+
+      <!-- What went wrong -->
+      <div id="issueSection" class="hidden">
+        <label for="issue">What was wrong?</label>
+        <select id="issue" name="issue">
+          <option value="">Select an issue</option>
+          <option>Missing item</option>
+          <option>Incorrect preparation (not warmed, wrong toppings, etc.)</option>
+          <option>Wrong item entirely</option>
+          <option>Other</option>
+        </select>
+
+        <label for="details">Optional details</label>
+        <textarea id="details" name="details" placeholder="Example: Cookie ordered NOT warmed, but it was warmed anyway."></textarea>
+      </div>
+
+      <button type="submit">Submit</button>
+
+    </form>
+
+    <p id="confirmation" class="hidden">
+      Thank you! Your response has been recorded.
+    </p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
