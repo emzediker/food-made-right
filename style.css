@@ -1,10 +1,13 @@
-/* ---------- Base ---------- */
+/* =========================
+   Base
+========================= */
 * {
   box-sizing: border-box;
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Arial, sans-serif;
   background: linear-gradient(180deg, #0f172a 0%, #020617 100%);
   margin: 0;
   padding: 0;
@@ -17,19 +20,20 @@ body {
   padding: 16px;
 }
 
-/* ---------- Hero ---------- */
+/* =========================
+   Hero
+========================= */
 .hero {
   background: linear-gradient(135deg, #020617, #0f172a);
   color: #e5e7eb;
   padding: 28px 22px 22px;
   border-radius: 14px;
   margin-bottom: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
 .hero h1 {
   margin: 10px 0 6px;
-  text-align: left;
   font-size: 26px;
   letter-spacing: -0.5px;
 }
@@ -68,11 +72,13 @@ body {
   opacity: 0.85;
 }
 
-/* ---------- Progress ---------- */
+/* =========================
+   Progress Bar
+========================= */
 .progress-wrap {
   margin-top: 16px;
   height: 6px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 999px;
   overflow: hidden;
 }
@@ -84,13 +90,15 @@ body {
   transition: width 0.25s ease;
 }
 
-/* ---------- Cards ---------- */
+/* =========================
+   Cards
+========================= */
 .card {
   background: #ffffff;
   border-radius: 14px;
   padding: 22px;
   margin-bottom: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
 .card-title {
@@ -105,7 +113,9 @@ body {
   margin: 16px 0;
 }
 
-/* ---------- Form ---------- */
+/* =========================
+   Form
+========================= */
 label {
   display: block;
   margin-top: 14px;
@@ -130,7 +140,9 @@ textarea {
   min-height: 80px;
 }
 
-/* ---------- Radios ---------- */
+/* =========================
+   Radio Pills
+========================= */
 .radio-group {
   display: flex;
   gap: 10px;
@@ -161,7 +173,9 @@ textarea {
   background: #dcfce7;
 }
 
-/* ---------- Button ---------- */
+/* =========================
+   Button
+========================= */
 button {
   margin-top: 22px;
   width: 100%;
@@ -173,14 +187,15 @@ button {
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
-  letter-spacing: 0.2px;
 }
 
 button:hover {
   filter: brightness(0.95);
 }
 
-/* ---------- Confirmation ---------- */
+/* =========================
+   Confirmation
+========================= */
 .confirmation {
   margin-top: 18px;
   padding: 12px;
@@ -191,26 +206,40 @@ button:hover {
   text-align: center;
 }
 
-/* ---------- Stats ---------- */
+/* =========================
+   Live Stats
+========================= */
 .stats {
   background: linear-gradient(135deg, #020617, #0f172a);
   color: #e5e7eb;
 }
 
+.stats-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
 .stats-sub {
   font-size: 12px;
   opacity: 0.8;
-  margin-bottom: 12px;
+  margin: 8px 0 12px;
+}
+
+.stats-updated {
+  font-size: 12px;
+  opacity: 0.75;
 }
 
 .stat-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 }
 
 .stat {
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
   padding: 12px;
   border-radius: 10px;
   text-align: center;
@@ -226,7 +255,15 @@ button:hover {
   opacity: 0.8;
 }
 
-/* ---------- Footer ---------- */
+.stats-error {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #fecaca;
+}
+
+/* =========================
+   Footer
+========================= */
 .footer {
   text-align: center;
   font-size: 12px;
@@ -235,7 +272,9 @@ button:hover {
   margin-top: 16px;
 }
 
-/* ---------- Utilities ---------- */
+/* =========================
+   Utilities
+========================= */
 .hidden {
   display: none;
 }
@@ -246,72 +285,3 @@ button:hover {
   opacity: 0.7;
   text-align: center;
 }
-/* ===== Live Stats ===== */
-.stats {
-  margin: 18px 0 10px;
-  padding: 14px;
-  border-radius: 10px;
-  background: #f8fafc;
-  border: 1px solid #e6edf5;
-}
-
-.stats-header {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 12px;
-}
-
-.stats h2 {
-  margin: 0;
-  font-size: 16px;
-  letter-spacing: 0.2px;
-}
-
-.stats-updated {
-  font-size: 12px;
-  color: #667085;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-
-.stat-card {
-  padding: 12px;
-  border-radius: 10px;
-  background: #ffffff;
-  border: 1px solid #eef2f7;
-}
-
-.stat-label {
-  font-size: 12px;
-  color: #667085;
-  margin-bottom: 6px;
-}
-
-.stat-value {
-  font-size: 22px;
-  font-weight: 800;
-  line-height: 1;
-}
-
-.stat-bad {
-  border-color: #ffe4e6;
-  background: #fff5f5;
-}
-
-.stat-good {
-  border-color: #dcfce7;
-  background: #f0fdf4;
-}
-
-.stats-error {
-  margin-top: 10px;
-  font-size: 12px;
-  color: #b42318;
-}
-
