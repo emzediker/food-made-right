@@ -4,7 +4,7 @@ const confirmation = document.getElementById("confirmation");
 
 // Show / hide issue section
 form.addEventListener("change", function (e) {
-  if (e.target.name === "correct") {
+  if (e.target.name === "entry.1083003025") {
     if (e.target.value === "No") {
       issueSection.classList.remove("hidden");
     } else {
@@ -14,27 +14,19 @@ form.addEventListener("change", function (e) {
 });
 
 // Handle form submit
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
+form.addEventListener("submit", function () {
+  // DO NOT prevent default — Google needs the submit
 
-  // Collect data (this is what will later go to Google Sheets)
-  const data = {
-    restaurant: form.restaurant.value,
-    correct: form.correct.value,
-    issue: form.issue ? form.issue.value : "",
-    details: form.details.value,
-    timestamp: new Date().toISOString()
-  };
-
-  console.log("Submission:", data);
-
-  // Placeholder for Google Form submission
-  // (We’ll hook this up next)
-
-  form.reset();
-  issueSection.classList.add("hidden");
+  // Show confirmation message
   confirmation.classList.remove("hidden");
 
+  // Reset UI (Google still receives data)
+  setTimeout(() => {
+    form.reset();
+    issueSection.classList.add("hidden");
+  }, 100);
+
+  // Hide confirmation after a few seconds
   setTimeout(() => {
     confirmation.classList.add("hidden");
   }, 4000);
