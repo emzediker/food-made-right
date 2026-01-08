@@ -6,49 +6,47 @@
   <title>Food Made Right</title>
   <link rel="stylesheet" href="style.css">
 
-  <!-- Social preview -->
+  <!-- Better link previews (Facebook, etc.) -->
   <meta property="og:title" content="Food Made Right" />
-  <meta property="og:description" content="Not Yelp. Not drama. Just: was the food made correctly?" />
+  <meta property="og:description" content="Not Yelp. Not drama. Just: was it made correctly?" />
   <meta property="og:type" content="website" />
 </head>
 
 <body>
   <div class="container">
 
-    <!-- HERO -->
+    <!-- Header / vibe -->
     <header class="hero">
       <div class="badge">DATA &gt; DRAMA</div>
       <h1>Food Made Right</h1>
-
       <p class="subtitle">
-        This is <strong>not</strong> about wait times, service, or attitude.<br>
-        One thing only: <strong>Was the food made correctly?</strong>
+        This is <strong>not</strong> about waits, service, attitude, or vibes.<br>
+        It’s one thing only: <strong>Was the food made correctly?</strong>
       </p>
 
       <div class="rules">
         <div class="rule">✅ Missing item / wrong item / wrong prep</div>
-        <div class="rule">❌ No rants about staff or vibes</div>
+        <div class="rule">❌ No rants about staff, attitude, or “they were rude”</div>
       </div>
 
       <div class="microcopy">
-        Takes ~20 seconds. Your spite is efficient.
+        Takes ~20 seconds. Your spite is efficient. 🙂
       </div>
 
+      <!-- lightweight progress bar -->
       <div class="progress-wrap" aria-hidden="true">
         <div id="progressBar" class="progress-bar"></div>
       </div>
     </header>
 
-    <!-- FORM CARD -->
+    <!-- Form card -->
     <section class="card">
       <h2 class="card-title">Log a Food Accuracy Report</h2>
 
-      <form
-        id="foodForm"
+      <form id="foodForm"
         action="https://docs.google.com/forms/d/e/1FAIpQLScYwyA7Trh5-olodyygcWY5HX8F2CuVBdmfsl3Af8W2DPhQUQ/formResponse"
         method="POST"
-        target="hidden_iframe"
-      >
+        target="hidden_iframe">
 
         <!-- Restaurant search -->
         <label for="restaurantSearch">Search restaurant</label>
@@ -64,6 +62,8 @@
         <label for="restaurant">Restaurant</label>
         <select id="restaurant" name="entry.1809047073" required>
           <option value="">Select a restaurant</option>
+
+          <!-- Keep these options alphabetized -->
           <option>Arby's</option>
           <option>Burger King</option>
           <option>Chick-fil-A</option>
@@ -87,7 +87,6 @@
             <input type="radio" name="entry.1083003025" value="Yes" required>
             <span>Yes ✅</span>
           </label>
-
           <label class="radio-pill">
             <input type="radio" name="entry.1083003025" value="No">
             <span>No 😤</span>
@@ -122,7 +121,7 @@
         </p>
       </form>
 
-      <!-- Hidden iframe prevents redirect -->
+      <!-- Hidden iframe prevents redirect to Google -->
       <iframe name="hidden_iframe" style="display:none;"></iframe>
 
       <p id="confirmation" class="hidden confirmation">
@@ -130,54 +129,48 @@
       </p>
     </section>
 
-    <!-- LIVE STATS -->
-    <section class="card stats">
-      <div class="stats-head">
+    <!-- LIVE IMPACT (from STATS tab) -->
+    <section class="card live">
+      <div class="live-head">
         <h2 class="card-title">Live Impact</h2>
-        <div id="statsUpdated" class="stats-updated">Loading…</div>
-      </div>
-
-      <p class="stats-sub">
-        Real numbers from the public STATS tab. Raw responses stay private.
-      </p>
-
-      <div class="stat-grid">
-        <div class="stat">
-          <div class="stat-num" id="stat_all_time_total">—</div>
-          <div class="stat-label">All-time reports</div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-num" id="stat_today_total">—</div>
-          <div class="stat-label">Today</div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-num" id="stat_last7_total">—</div>
-          <div class="stat-label">Last 7 days</div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-num" id="stat_last7_not_right">—</div>
-          <div class="stat-label">Not made right (7d)</div>
-        </div>
-
-        <div class="stat">
-          <div class="stat-num" id="stat_last7_right">—</div>
-          <div class="stat-label">Made right (7d)</div>
+        <div class="live-right">
+          <span class="live-note">Real numbers from the public STATS tab. Raw responses stay private.</span>
+          <span class="live-updated" id="impactUpdated">Loading…</span>
         </div>
       </div>
 
-      <div id="statsError" class="hidden stats-error">
-        Stats temporarily unavailable. (Form still works.)
+      <div class="live-grid">
+        <div class="live-card">
+          <div class="live-value" id="impactAllTime">—</div>
+          <div class="live-label">All-time reports</div>
+        </div>
+
+        <div class="live-card">
+          <div class="live-value" id="impactToday">—</div>
+          <div class="live-label">Today</div>
+        </div>
+
+        <div class="live-card">
+          <div class="live-value" id="impactLast7">—</div>
+          <div class="live-label">Last 7 days</div>
+        </div>
+
+        <div class="live-card">
+          <div class="live-value" id="impactNotRight7">—</div>
+          <div class="live-label">Not made right (7d)</div>
+        </div>
+
+        <div class="live-card">
+          <div class="live-value" id="impactRight7">—</div>
+          <div class="live-label">Made right (7d)</div>
+        </div>
       </div>
+
+      <div class="live-error hidden" id="impactError"></div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="footer">
-      <div>
-        Made for people who order food and expect the food they ordered.
-      </div>
+      <div>Made for people who order food and expect the food they ordered.</div>
     </footer>
 
   </div>
