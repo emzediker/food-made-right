@@ -1,82 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Food Made Right?</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Food Made Right</title>
   <link rel="stylesheet" href="style.css">
+
+  <!-- Better link previews (Facebook, etc.) -->
+  <meta property="og:title" content="Food Made Right" />
+  <meta property="og:description" content="Not Yelp. Not drama. Just: was it made correctly?" />
+  <meta property="og:type" content="website" />
 </head>
+
 <body>
-
   <div class="container">
-    <h1>Was Your Food Made Right?</h1>
-    <p class="subtitle">
-      This is NOT about wait times, service, or attitude.<br>
-      Just one question: <strong>Was your food made correctly?</strong>
-    </p>
 
-    <form id="foodForm"
-      action="https://docs.google.com/forms/d/e/1FAIpQLScYwyA7Trh5-olodyygcWY5HX8F2CuVBdmfsl3Af8W2DPhQUQ/formResponse"
-      method="POST"
-      target="hidden_iframe">
+    <!-- Header / vibe -->
+    <header class="hero">
+      <div class="badge">DATA > DRAMA</div>
+      <h1>Food Made Right</h1>
+      <p class="subtitle">
+        This is <strong>not</strong> about waits, service, attitude, or vibes.<br>
+        It’s one thing only: <strong>Was the food made correctly?</strong>
+      </p>
 
-      <!-- Restaurant -->
-      <label for="restaurant">Restaurant</label>
-      <select id="restaurant" name="entry.1809047073" required>
-        <option value="">Select a restaurant</option>
-        <option>Arby's</option>
-        <option>Burger King</option>
-        <option>Chick-fil-A</option>
-        <option>Chipotle</option>
-        <option>Domino's</option>
-        <option>Dunkin'</option>
-        <option>KFC</option>
-        <option>McDonald's</option>
-        <option>Panda Express</option>
-        <option>Pizza Hut</option>
-        <option>Starbucks</option>
-        <option>Taco Bell</option>
-        <option>Wendy's</option>
-        <option>Other</option>
-      </select>
-
-      <!-- Correct? -->
-      <label>Was your food made correctly?</label>
-      <div class="radio-group">
-        <label>
-          <input type="radio" name="entry.1083003025" value="Yes" required>
-          Yes
-        </label>
-        <label>
-          <input type="radio" name="entry.1083003025" value="No">
-          No
-        </label>
+      <div class="rules">
+        <div class="rule">✅ Missing item / wrong item / wrong prep</div>
+        <div class="rule">❌ No rants about staff, attitude, or “they were rude”</div>
       </div>
 
-      <!-- What went wrong -->
-      <div id="issueSection" class="hidden">
-        <label for="issue">What was wrong?</label>
-        <select id="issue" name="entry.975635367">
-          <option value="">Select an issue</option>
-          <option>Missing item</option>
-          <option>Incorrect preparation (not warmed, wrong toppings, etc.)</option>
-          <option>Wrong item entirely</option>
+      <div class="microcopy">
+        Takes ~20 seconds. Your spite is efficient. 🙂
+      </div>
+
+      <!-- lightweight progress bar -->
+      <div class="progress-wrap" aria-hidden="true">
+        <div id="progressBar" class="progress-bar"></div>
+      </div>
+    </header>
+
+    <!-- Form card -->
+    <section class="card">
+      <h2 class="card-title">Log a Food Accuracy Report</h2>
+
+      <form id="foodForm"
+        action="https://docs.google.com/forms/d/e/1FAIpQLScYwyA7Trh5-olodyygcWY5HX8F2CuVBdmfsl3Af8W2DPhQUQ/formResponse"
+        method="POST"
+        target="hidden_iframe">
+
+        <!-- Restaurant search -->
+        <label for="restaurantSearch">Search restaurant</label>
+        <input
+          id="restaurantSearch"
+          class="text-input"
+          type="text"
+          placeholder="Type: Starbucks, McDonald's, Chick-fil-A…"
+          autocomplete="off"
+        />
+
+        <!-- Restaurant dropdown -->
+        <label for="restaurant">Restaurant</label>
+        <select id="restaurant" name="entry.1809047073" required>
+          <option value="">Select a restaurant</option>
+
+          <!-- Keep these options alphabetized; we’ll expand later -->
+          <option>Arby's</option>
+          <option>Burger King</option>
+          <option>Chick-fil-A</option>
+          <option>Chipotle</option>
+          <option>Domino's</option>
+          <option>Dunkin'</option>
+          <option>KFC</option>
+          <option>McDonald's</option>
+          <option>Panda Express</option>
+          <option>Pizza Hut</option>
+          <option>Starbucks</option>
+          <option>Taco Bell</option>
+          <option>Wendy's</option>
           <option>Other</option>
         </select>
 
-        <label for="details">Optional details</label>
-        <textarea id="details" name="entry.335747090" placeholder="Example: Cookie ordered NOT warmed, but it was warmed anyway."></textarea>
+        <!-- Correct? -->
+        <label>Was your food made correctly?</label>
+        <div class="radio-group">
+          <label class="radio-pill">
+            <input type="radio" name="entry.1083003025" value="Yes" required>
+            <span>Yes ✅</span>
+          </label>
+          <label class="radio-pill">
+            <input type="radio" name="entry.1083003025" value="No">
+            <span>No 😤</span>
+          </label>
+        </div>
+
+        <!-- What went wrong -->
+        <div id="issueSection" class="hidden">
+          <div class="divider"></div>
+
+          <label for="issue">What was wrong?</label>
+          <select id="issue" name="entry.975635367">
+            <option value="">Select an issue</option>
+            <option>Missing item</option>
+            <option>Incorrect preparation (not warmed, wrong toppings, etc.)</option>
+            <option>Wrong item entirely</option>
+            <option>Other</option>
+          </select>
+
+          <label for="details">Optional details</label>
+          <textarea
+            id="details"
+            name="entry.335747090"
+            placeholder="Example: Ordered cookie NOT warmed — it was warmed anyway."
+          ></textarea>
+        </div>
+
+        <button id="submitBtn" type="submit">Submit Report</button>
+
+        <p class="fineprint">
+          Reports are anonymous. This is for accuracy tracking — not harassment.
+        </p>
+      </form>
+
+      <!-- Hidden iframe prevents redirect to Google -->
+      <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+      <p id="confirmation" class="hidden confirmation">
+        ✅ Logged. Thank you for choosing data over rage.
+      </p>
+    </section>
+
+    <!-- Fun “impact” area (local, optional) -->
+    <section class="card stats">
+      <h2 class="card-title">Spite Stats (local)</h2>
+      <p class="stats-sub">
+        These counters are stored in your browser for now (not global yet).
+        When you want, we’ll pull real numbers from Sheets.
+      </p>
+
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="stat-num" id="statTotal">0</div>
+          <div class="stat-label">Reports submitted</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" id="statNo">0</div>
+          <div class="stat-label">“No 😤” reports</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" id="statTop">—</div>
+          <div class="stat-label">Most selected restaurant (local)</div>
+        </div>
       </div>
+    </section>
 
-      <button type="submit">Submit</button>
+    <footer class="footer">
+      <div>Made for people who order food and expect the food they ordered.</div>
+    </footer>
 
-    </form>
-
-    <!-- Hidden iframe prevents redirect to Google -->
-    <iframe name="hidden_iframe" style="display:none;"></iframe>
-
-    <p id="confirmation" class="hidden">
-      Thank you! Your response has been recorded.
-    </p>
   </div>
 
   <script src="script.js"></script>
