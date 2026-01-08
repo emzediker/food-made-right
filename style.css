@@ -1,79 +1,248 @@
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(180deg, #0f172a 0%, #020617 100%);
   margin: 0;
   padding: 0;
+  color: #0f172a;
 }
 
 .container {
-  max-width: 500px;
-  background: #ffffff;
-  margin: 40px auto;
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  max-width: 520px;
+  margin: 24px auto 40px;
+  padding: 16px;
 }
 
-h1 {
-  text-align: center;
+/* ---------- Hero ---------- */
+.hero {
+  background: linear-gradient(135deg, #020617, #0f172a);
+  color: #e5e7eb;
+  padding: 28px 22px 22px;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.hero h1 {
+  margin: 10px 0 6px;
+  text-align: left;
+  font-size: 26px;
+  letter-spacing: -0.5px;
 }
 
 .subtitle {
-  text-align: center;
-  font-size: 14px;
-  color: #555;
+  font-size: 15px;
+  line-height: 1.4;
+  color: #c7d2fe;
 }
 
+.badge {
+  display: inline-block;
+  background: #22c55e;
+  color: #022c22;
+  font-weight: 700;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.5px;
+}
+
+.rules {
+  margin-top: 14px;
+  border-left: 3px solid #22c55e;
+  padding-left: 12px;
+}
+
+.rule {
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.microcopy {
+  margin-top: 12px;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+/* ---------- Progress ---------- */
+.progress-wrap {
+  margin-top: 16px;
+  height: 6px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #22c55e, #4ade80);
+  transition: width 0.25s ease;
+}
+
+/* ---------- Cards ---------- */
+.card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 22px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+.card-title {
+  margin: 0 0 16px;
+  font-size: 18px;
+  letter-spacing: -0.3px;
+}
+
+.divider {
+  height: 1px;
+  background: #e5e7eb;
+  margin: 16px 0;
+}
+
+/* ---------- Form ---------- */
 label {
   display: block;
-  margin-top: 15px;
-  font-weight: bold;
+  margin-top: 14px;
+  font-weight: 600;
+  font-size: 14px;
 }
 
 select,
-textarea {
+textarea,
+.text-input {
   width: 100%;
-  padding: 8px;
-  margin-top: 5px;
+  padding: 10px 12px;
+  margin-top: 6px;
+  border-radius: 8px;
+  border: 1px solid #cbd5f5;
+  font-size: 15px;
+  background: #ffffff;
 }
 
 textarea {
   resize: vertical;
-  min-height: 70px;
+  min-height: 80px;
 }
 
+/* ---------- Radios ---------- */
 .radio-group {
-  margin-top: 8px;
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
 }
 
-.radio-group label {
-  margin-right: 15px;
-  font-weight: normal;
-}
-
-button {
-  margin-top: 20px;
-  width: 100%;
-  padding: 10px;
-  background-color: #2c7be5;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
+.radio-pill {
+  flex: 1;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #1a5bb8;
+.radio-pill input {
+  display: none;
 }
 
+.radio-pill span {
+  display: block;
+  text-align: center;
+  padding: 10px 0;
+  border-radius: 999px;
+  border: 2px solid #cbd5f5;
+  font-weight: 600;
+  background: #f8fafc;
+}
+
+.radio-pill input:checked + span {
+  border-color: #22c55e;
+  background: #dcfce7;
+}
+
+/* ---------- Button ---------- */
+button {
+  margin-top: 22px;
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+  color: #022c22;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.2px;
+}
+
+button:hover {
+  filter: brightness(0.95);
+}
+
+/* ---------- Confirmation ---------- */
+.confirmation {
+  margin-top: 18px;
+  padding: 12px;
+  background: #dcfce7;
+  border-radius: 10px;
+  color: #14532d;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* ---------- Stats ---------- */
+.stats {
+  background: linear-gradient(135deg, #020617, #0f172a);
+  color: #e5e7eb;
+}
+
+.stats-sub {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-bottom: 12px;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.stat {
+  background: rgba(255,255,255,0.08);
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.stat-num {
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.stat-label {
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.75;
+  color: #e5e7eb;
+  margin-top: 16px;
+}
+
+/* ---------- Utilities ---------- */
 .hidden {
   display: none;
 }
 
-#confirmation {
-  margin-top: 20px;
-  color: green;
+.fineprint {
+  margin-top: 12px;
+  font-size: 11px;
+  opacity: 0.7;
   text-align: center;
-  font-weight: bold;
 }
