@@ -246,3 +246,72 @@ button:hover {
   opacity: 0.7;
   text-align: center;
 }
+/* ===== Live Stats ===== */
+.stats {
+  margin: 18px 0 10px;
+  padding: 14px;
+  border-radius: 10px;
+  background: #f8fafc;
+  border: 1px solid #e6edf5;
+}
+
+.stats-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.stats h2 {
+  margin: 0;
+  font-size: 16px;
+  letter-spacing: 0.2px;
+}
+
+.stats-updated {
+  font-size: 12px;
+  color: #667085;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.stat-card {
+  padding: 12px;
+  border-radius: 10px;
+  background: #ffffff;
+  border: 1px solid #eef2f7;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #667085;
+  margin-bottom: 6px;
+}
+
+.stat-value {
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.stat-bad {
+  border-color: #ffe4e6;
+  background: #fff5f5;
+}
+
+.stat-good {
+  border-color: #dcfce7;
+  background: #f0fdf4;
+}
+
+.stats-error {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #b42318;
+}
+
